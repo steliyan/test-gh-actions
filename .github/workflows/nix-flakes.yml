@@ -1,0 +1,23 @@
+name: "Test Nix Flakes"
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  nix-flakes:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: cachix/install-nix-action@v31
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Nix flake check
+        run: nix flake check
+
+      - name: Nix shell
+        run: |
+          nix develop --command bash -c "echo \"yq version: \$(yq --version)\""

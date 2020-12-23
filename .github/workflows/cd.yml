@@ -1,0 +1,43 @@
+name: CD
+
+on:
+  push:
+    branches:
+      - $default-branch
+  workflow_dispatch:
+    inputs:
+      deploy:
+        description: "Deploy"
+        type: boolean
+        default: false
+        required: true
+
+env:
+  DEPLOY: >-
+    ${{
+      (github.event_name == 'push' && github.ref == 'refs/heads/master') ||
+      (github.event_name == 'workflow_dispatch' && inputs.deploy)
+    }}
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: git log
+        run: git log -n 100 --format='%s'
+
+      - name: GitHub inputs
+        run: echo ${{ toJSON(inputs) }}
+
+      - name: GitHub event inputs
+        run: echo ${{ toJSON(github.event) }}
+
+      - name: GitHub event inputs
+        run: echo ${{ github.event.pull_request.number }}
+
+      - name: Deploy
+        if: ${{ env.DEPLOY == 'true' }}
+        run: echo "Starting deployment..."

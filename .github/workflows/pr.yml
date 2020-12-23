@@ -1,0 +1,21 @@
+name: PR
+
+on:
+  pull_request:
+    types: [opened, synchronize, edited, reopened]
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: GitHub inputs
+        run: echo ${{ toJSON(inputs) }}
+
+      - name: GitHub event inputs
+        run: echo ${{ toJSON(github.event) }}
+
+      - name: GitHub event inputs
+        run: echo ${{ github.event.pull_request.number }}
