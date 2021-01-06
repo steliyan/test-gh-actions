@@ -3,7 +3,7 @@ name: CD
 on:
   push:
     branches:
-      - master
+      - $default-branch
   workflow_dispatch:
     inputs:
       deploy_env:
