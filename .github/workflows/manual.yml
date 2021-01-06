@@ -2,10 +2,10 @@ name: CD
 
 on:
   push:
-    branches: [$default-branch]
+    branches: [master]
   workflow_dispatch:
     inputs:
-      DEPLOY_ENV:
+      deploy_env:
         description: "Environment to deploy"
         default: "PRODUCTION"
         required: true
@@ -16,9 +16,9 @@ jobs:
 
     steps:
       - name: Run CD scripts (STAGING)
-        run: echo "Hello from staging"
-        if: env.DEPLOY_ENV != 'PRODUCTION'
+        run: "echo staging"
+        if: github.event.inputs.deploy_env != 'PRODUCTION'
 
       - name: Run CD scripts (PRODUCTION)
         run: echo "Hello from prod"
-        if: env.DEPLOY_ENV == 'PRODUCTION'
+        if: github.event.inputs.deploy_env == 'PRODUCTION'
