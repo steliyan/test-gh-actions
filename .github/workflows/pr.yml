@@ -10,3 +10,12 @@ jobs:
     steps:
       - name: Run CI
         run: "echo ci ${{ github.event.pull_request.number }}"
+
+      - uses: LouisBrunner/checks-action@v1.1.1
+        if: always()
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: Test XYZ
+          conclusion: ${{ job.status }}
+          output: |
+            {"summary":${{ steps.test.outputs.summary }}}
