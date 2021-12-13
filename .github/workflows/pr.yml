@@ -11,9 +11,6 @@ jobs:
       - name: Run CI
         run: "echo ci ${{ github.event.pull_request.number }}"
 
-      - uses: actions/create-outputs@v0.0.0-fake
-        id: test
-
       - uses: LouisBrunner/checks-action@v1.1.1
         if: always()
         with:
@@ -21,4 +18,4 @@ jobs:
           name: Test XYZ
           conclusion: ${{ job.status }}
           output: |
-            {"summary":${{ steps.test.outputs.summary }}}
+            {"summary":}
