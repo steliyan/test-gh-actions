@@ -21,7 +21,7 @@ jobs:
       #     action_url: https://foo.bar/action
       #     details_url: https://foo.bar/details
 
-      - uses: chrnorm/deployment-action@releases/v1.2.0
+      - uses: chrnorm/deployment-action@v1.2.0
         name: Create GitHub deployment
         id: deployment
         with:
