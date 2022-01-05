@@ -26,6 +26,6 @@ jobs:
         id: deployment
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          target_url: http://my-app-url.com
+          target_url: http://google.com
           environment: production
           initial_status: success
