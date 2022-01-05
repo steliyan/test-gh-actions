@@ -28,4 +28,4 @@ jobs:
           token: ${{ github.token }}
           environment_url: http://google.com
           state: success
-          deployment_id: ${{ github.event.pull_request.number }}
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
