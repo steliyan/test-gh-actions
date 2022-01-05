@@ -27,6 +27,6 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          target_url: https://st6.io
+          target_url: https://huichoslav.gg
           environment: production
           initial_status: success
