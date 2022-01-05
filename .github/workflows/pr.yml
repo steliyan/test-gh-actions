@@ -27,6 +27,6 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          target_url: https://google.com
+          target_url: https://st6.io
           environment: production
           initial_status: success
