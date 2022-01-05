@@ -16,6 +16,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           name: Test XYZ
+          status: completed
           conclusion: success
-          action_url: https://example.com/details
-          details_url: https://example.com/details
+          action_url: https://foo.bar/action
+          details_url: https://foo.bar/details
