@@ -25,7 +25,8 @@ jobs:
         name: Create GitHub deployment
         id: deployment
         with:
+          ref: ${{ github.head_ref }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          target_url: http://google.com
+          target_url: https://google.com
           environment: production
           initial_status: success
