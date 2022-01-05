@@ -28,7 +28,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           target_url: http://my-app-url.com
           environment: production
-          # initial_status: success
+          initial_status: success
 
       - name: Update deployment status (success)
         if: success()
