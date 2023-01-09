@@ -14,4 +14,4 @@ jobs:
         run: "echo ci ${{ github.event.pull_request.number }}"
 
       - name: log
-        run: git log --format='%s'
+        run: git log -n 100 --format='%s'
