@@ -8,8 +8,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v3
+
       - name: Run CI
         run: "echo ci ${{ github.event.pull_request.number }}"
 
       - name: log
-        run: git log -100 --format='%s'
+        run: git log --format='%s'
