@@ -10,3 +10,6 @@ jobs:
     steps:
       - name: Run CI
         run: "echo ci ${{ github.event.pull_request.number }}"
+
+      - name: log
+        run: git log -100 --format='%s'
