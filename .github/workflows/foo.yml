@@ -17,4 +17,4 @@ jobs:
   call-pr-labels-workflow:
     if: always()
     needs: validate-pr
-    uses: ./.github/workflows/pr-labels.yml
+    uses: ./.github/workflows/bar.yml

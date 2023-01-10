@@ -11,7 +11,18 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Run CI
-        run: "echo ci ${{ github.event.pull_request.number }}"
+        id: xxx
+        run: |
+          echo "skip0=0" >> $GITHUB_OUTPUT
+          echo "skip1=1" >> $GITHUB_OUTPUT
+
+      - name: fail0
+        run: false
+        if: steps.xxx.outputs.skip0 != 0
+
+      - name: fail1
+        run: false
+        if: steps.xxx.outputs.skip1 != 0
 
       - name: log
         run: git log -n 100 --format='%s'
