@@ -16,6 +16,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v3
+
+      - name: log
+        run: git log -n 100 --format='%s'
+
       - name: Run CD scripts (STAGING)
         run: "echo staging"
         if: github.event.inputs.deploy_env != 'PRODUCTION'
