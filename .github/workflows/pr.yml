@@ -3,15 +3,20 @@ name: PR
 on:
   pull_request:
     types: [opened, synchronize]
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    if: github.actor != 'steliyan'
 
     steps:
       - uses: actions/checkout@v3
 
       - name: Run CI
-        run: "echo ci ${{ github.event.pull_request.number }}"
+        id: xxx
+        run: echo "ci build..."
 
-      - name: log
-        run: git log -n 100 --format='%s'
+  call-bar:
+    if: always()
+    needs: build
+    uses: ./.github/workflows/jira.yml
