@@ -18,6 +18,6 @@ jobs:
         run: echo "ci build..."
 
   call-bar:
-    if: always()
+    if: success() || failure()
     needs: build
     uses: ./.github/workflows/jira.yml
