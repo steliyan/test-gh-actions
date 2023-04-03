@@ -2,12 +2,12 @@ name: PR
 
 on:
   pull_request:
-    types: [opened, synchronize]
+    types: [opened, synchronize, edited, reopened]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.actor != 'steliyan'
+    if: github.actor != 'steliyan123'
 
     steps:
       - uses: actions/checkout@v3
