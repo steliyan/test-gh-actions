@@ -6,8 +6,8 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
     if: github.actor != 'steliyan'
+    runs-on: ubuntu-22.04
     # if: github.actor != 'steliyan123'
 
     steps:

@@ -1,8 +1,6 @@
 name: "Validate Jira issue in PR"
 
-on:
-  pull_request:
-    types: [opened, synchronize, edited, reopened]
+on: workflow_call
 
 jobs:
   validate-pr:
