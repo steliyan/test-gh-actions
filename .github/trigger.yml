@@ -1,0 +1,16 @@
+name: CD
+
+on:
+  workflow_dispatch:
+
+jobs:
+  trigger:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Trigger target workflow
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        gh workflow run "CD" \
+          --repo "steliyan/test-gh-actions" \
+          --field deploy_env="Triggered from ${{ github.workflow }}"
