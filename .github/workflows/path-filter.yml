@@ -1,0 +1,37 @@
+name: build
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - master
+
+jobs:
+  file-changes:
+    runs-on: ubuntu-24.04
+    permissions:
+      pull-requests: read
+    outputs:
+      match: ${{ steps.filter.outputs.match }}
+    steps:
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            match:
+              - '.github/workflows/paths-filter.yml'
+              - '*'
+
+  build-go-client:
+    runs-on: ubuntu-24.04
+    needs: file-changes
+    if: ${{ needs.file-changes.outputs.match == 'true' }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Foo
+        run: echo "FOO"
