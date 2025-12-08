@@ -1,0 +1,25 @@
+name: Create PR
+
+on:
+  push:
+    branches:
+      - $default-branch
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Make changes
+           run: |
+             echo "$(date): Automated update" >> update-log.txt
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Automated update: $(date)"
+          title: "Automated changes from GitHub Actions"
