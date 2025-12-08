@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v3
 
-      - name: Make changes
-        run: echo "$(date): Automated update" >> update-log.txt
+      - name: log
+        run: date > update-log.txt
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
