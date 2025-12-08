@@ -15,8 +15,3 @@ jobs:
       - name: Run CI
         id: xxx
         run: echo "ci build..."
-
-  call-bar:
-    if: always()
-    needs: build
-    uses: ./.github/workflows/jira.yml
