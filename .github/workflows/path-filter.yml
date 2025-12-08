@@ -17,6 +17,9 @@ jobs:
     outputs:
       match: ${{ steps.filter.outputs.match }}
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+        if: github.event_name != 'pull_request'
       - uses: dorny/paths-filter@v3
         id: filter
         with:
