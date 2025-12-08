@@ -25,7 +25,7 @@ jobs:
         with:
           filters: |
             match:
-              - '.github/workflows/paths-filter.yml'
+              - '.github/workflows/path-filter.yml'
               - '*'
 
   build-go-client:
