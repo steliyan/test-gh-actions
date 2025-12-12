@@ -17,6 +17,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      
+      - uses: actions/checkout@v6
+        with:
+          repository: 'steliyan/js-relative-imports'
+          path: './js'
 
       - name: log
         run: git log -n 100 --format='%s'
