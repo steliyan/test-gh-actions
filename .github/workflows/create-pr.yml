@@ -22,5 +22,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "Automated update: $(date)"
           title: "Automated changes from GitHub Actions"
-          body:      "${{github.actor}}"
+          body: |
+            actor: ${{github.actor}}
+            actor_id: ${{github.actor_id}}
+            triggering_actor: ${{github.triggering_actor}}
 
