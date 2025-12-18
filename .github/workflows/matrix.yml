@@ -40,7 +40,7 @@ jobs:
         run: |
           set +eoux
 
-          if [ "${{ matrix.environment.name }}" = "bar" ]; then
+          if [ "${{ matrix.environment.name }}" = "bar_never" ]; then
             echo "❌ error"
             exit 1
           else
@@ -48,7 +48,7 @@ jobs:
           fi
 
   final:
-    name: " Topics - ${{ matrix.environment.name }}"
+    name: "Final step"
     runs-on: ubuntu-latest
     needs: matrix
 
