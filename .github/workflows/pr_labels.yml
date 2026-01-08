@@ -1,0 +1,16 @@
+name: PR
+
+on:
+  pull_request:
+    types: [opened, synchronize, edited, reopened]
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    if: ${{ !contains(github.event.pull_request.labels.*.name, 'deploy') }}
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: checks
+        run: echo "running checks"
