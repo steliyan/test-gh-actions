@@ -6,9 +6,10 @@ on:
       - $default-branch
   workflow_dispatch:
     inputs:
-      deploy_env:
-        description: "Environment to deploy"
-        default: "PRODUCTION"
+      deploy_to_artifactory:
+        description: "Deploy"
+        type: boolean
+        default: false
         required: true
 
 jobs:
