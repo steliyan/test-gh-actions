@@ -21,11 +21,8 @@ jobs:
 
 
       - name: log
-        run: echo ${{ inputs }}
-
-      - name: log
-        run: echo ${{ inputs.deploy_to_artifactory }}
+        run: echo ${{ toJSON(inputs) }}
 
       - name: Run CD scripts (PRODUCTION)
         run: echo "Hello from prod"
-        if: ${{ github.event.inputs.deploy_to_artifactory == 'true' }}
+        if: ${{ inputs.deploy == true }}
