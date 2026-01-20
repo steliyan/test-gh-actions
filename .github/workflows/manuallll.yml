@@ -21,7 +21,7 @@ jobs:
 
 
       - name: log
-        run: echo ${{ toJSON(inputs) }}
+        run: echo "${{ toJSON(inputs) }}"
 
       - name: Run CD scripts (PRODUCTION)
         run: echo "Hello from prod"
