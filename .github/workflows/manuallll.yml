@@ -25,4 +25,4 @@ jobs:
 
       - name: Run CD scripts (PRODUCTION)
         run: echo "Hello from prod"
-        if: ${{ inputs.deploy == true }}
+        if: ${{ inputs.deploy }}
