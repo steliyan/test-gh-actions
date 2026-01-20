@@ -13,7 +13,9 @@ on:
         required: true
 
 env:
-  DEPLOY: ${{ (github.event_name == 'push' && github.ref == 'refs/heads/master') || (github.event_name == 'workflow_dispatch' && inputs.deploy) }}
+  DEPLOY: |
+    (github.event_name == 'push' && github.ref == 'refs/heads/master') ||
+    (github.event_name == 'workflow_dispatch' && inputs.deploy)
 
 
 jobs:
