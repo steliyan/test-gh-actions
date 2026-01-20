@@ -28,6 +28,9 @@ jobs:
       - name: log
         run: echo "${{ toJSON(inputs) }}"
 
+      - name: log
+        run: echo "${{ toJSON(env) }}"
+
       - name: Run CD scripts (PRODUCTION)
         run: echo "Hello from prod"
         if: ${{ env.DEPLOY == 'true' }}
