@@ -19,9 +19,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+
       - name: log
         run: echo ${{ github.event.inputs }}
 
+      - name: log
+        run: echo ${{ github.event.inputs.deploy_to_artifactory }}
+
       - name: Run CD scripts (PRODUCTION)
         run: echo "Hello from prod"
-        if: ${{ inputs.deploy_to_artifactory == 'true' }}
+        if: ${{ github.event.inputs.deploy_to_artifactory }}
