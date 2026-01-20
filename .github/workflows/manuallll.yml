@@ -24,4 +24,4 @@ jobs:
 
       - name: Run CD scripts (PRODUCTION)
         run: echo "Hello from prod"
-        if: ${{ inputs.deploy_to_artifactory }}
+        if: ${{ inputs.deploy_to_artifactory == 'true' }}
