@@ -1,0 +1,16 @@
+name: Auto merge
+
+on: pull_request
+
+permissions:
+  contents: write
+  pull-requests: write
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Auto-merge Pull Request
+        run: gh pr merge --squash --auto "1"
