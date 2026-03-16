@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Approve Pull Request
-        run: gh pr review --repo "${PR_URL}"
+        run: gh pr review --approve "${PR_URL}"
         env:
           GH_TOKEN: ${{ github.token }}
           PR_URL: ${{github.event.pull_request.html_url}}
