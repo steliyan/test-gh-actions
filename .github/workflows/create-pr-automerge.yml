@@ -13,6 +13,7 @@ jobs:
 
     steps:
       - name: Auto-merge Pull Request
-        run: gh pr merge --squash --auto "1"
+        run: gh pr merge --squash --auto "${{ PR_URL }}"
         env:
           GH_TOKEN: ${{ github.token }}
+          PR_URL: ${{github.event.pull_request.html_url}}
