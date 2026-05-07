@@ -11,5 +11,11 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - name: Validate PR
-        run: echo "Doing some PR validations..."
+      - name: GitHub inputs
+        run: echo {{ toJSON(github.inputs) }}
+
+      - name: GitHub event inputs
+        run: echo {{ toJSON(github.event) }}
+
+      - name: GitHub event inputs
+        run: echo {{ github.event.pull_request.number }}
